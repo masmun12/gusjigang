@@ -40,6 +40,7 @@ export default function m(props: GusjigangHomeProps): any {
             cversion.save(lastVersion)
             fetchNewData()
           } else {
+            fetchNewData()
             loadData()
           }
         } else {
@@ -84,7 +85,13 @@ export default function m(props: GusjigangHomeProps): any {
   const implgus = getData(data, 'implgus')
   const implji = getData(data, 'implji')
   const implgang = getData(data, 'implgang')
+  const desmed = getData(data, 'deskripsi-media')
+  const kontak = getData(data, 'kontak')
+  const foto = getData(data, 'foto')
 
+  function toDetailImage(idName: string) {
+    LibNavigation.navigate('gusjigang/detail_image', { 'idName': idName })
+  }
 
   function toDetail(idName: string) {
     LibNavigation.navigate('gusjigang/detail', { 'idName': idName })
@@ -108,51 +115,57 @@ export default function m(props: GusjigangHomeProps): any {
       </View>
       <View style={{ flex: 1 }} >
         <LibScroll>
+
           <View style={{ flexDirection: 'row' }} >
-            <View style={{ flex: 1 }} >
-              <TouchableOpacity onPress={() => { toDetail('detail-didit') }} style={{ flex: 1, }} >
-                <View style={{ flex: 1, backgroundColor: colorHeader, margin: 10, padding: 10, marginRight: 0, height: 160, borderRadius: 2, overflow: 'hidden' }} >
-                  <ImageBackground style={{ flex: 1, margin: -10 }} source={{ uri: about && about.image }} />
-                  <View style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, padding: 10, backgroundColor: LibUtils.hexToRgba(colorHeader, 0.5) }} >
-                    <GusjigangText fontSize={15} style={{ fontWeight: 'bold', textAlign: 'center' }} text={about && about.title} />
-                    <GusjigangText fontSize={15} style={{ fontWeight: 'bold', textAlign: 'center' }} text={about && about.subtitle} />
-                    <GusjigangText fontSize={11} style={{ marginTop: 50, textAlign: 'center' }} text={about && about.description} />
-                  </View>
+            <View style={{ flex: 1, backgroundColor: colorHeader, margin: 10, padding: 10 }} >
+              <TouchableOpacity onPress={() => toDetailImage('detail-beranda')} style={{ flex: 1 }} >
+                <View style={{ flex: 1, alignItems: 'center' }} >
+                  <LibIcon name="home" size={60} color={'white'} />
+                  <GusjigangText fontSize={15} style={{ fontWeight: 'bold', textAlign: 'center', marginTop: 5 }} text={about && about.title} />
                 </View>
               </TouchableOpacity>
             </View>
-            <TouchableWithoutFeedback onPress={() => { toDetailTabs('detail-implgus') }} style={{ flex: 1, }} >
-              <View style={{ flex: 1, backgroundColor: colorHeader, margin: 10, marginTop: 0, padding: 10, marginRight: 0, minHeight: 200, justifyContent: 'center', borderRadius: 2, overflow: 'hidden' }} >
-                <GusjigangText fontSize={12.5} text={implgus && implgus.title} style={{ textAlign: 'center' }} />
-              </View>
-            </TouchableWithoutFeedback>
+            <View style={{ flex: 1, backgroundColor: colorHeader, margin: 10, marginHorizontal: 0, padding: 10 }} >
+              <TouchableOpacity onPress={() => LibNavigation.navigate('gusjigang/detail_card', { 'idName': 'deskripsi-media' })} style={{ flex: 1 }} >
+                <View style={{ flex: 1, alignItems: 'center' }} >
+                  <LibIcon name="book-open-page-variant" size={60} color={'white'} />
+                  <GusjigangText fontSize={15} style={{ fontWeight: 'bold', textAlign: 'center', marginTop: 5 }} text={desmed && desmed.title} />
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View style={{ flex: 1, backgroundColor: colorHeader, margin: 10, padding: 10 }} >
+              <TouchableOpacity onPress={() => LibNavigation.navigate('gusjigang/detail_card', { 'idName': 'kontak' })} style={{ flex: 1 }} >
+                <View style={{ flex: 1, alignItems: 'center' }} >
+                  <LibIcon name="cellphone-message" size={60} color={'white'} />
+                  <GusjigangText fontSize={15} style={{ fontWeight: 'bold', textAlign: 'center', marginTop: 5 }} text={kontak && kontak.title} />
+                </View>
+              </TouchableOpacity>
+            </View>
           </View>
           <View style={{ flexDirection: 'row' }} >
-            {/* <TouchableWithoutFeedback onPress={() => { toDetailTabs('detail-implgus') }} style={{ flex: 1, }} >
-              <View style={{ flex: 1, backgroundColor: colorHeader, margin: 10, marginTop: 0, padding: 10, marginRight: 0, minHeight: 200, justifyContent: 'center', borderRadius: 2, overflow: 'hidden' }} >
-                <GusjigangText fontSize={12.5} text={implgus && implgus.title} style={{ textAlign: 'center' }} />
-              </View>
-            </TouchableWithoutFeedback> */}
-            <TouchableWithoutFeedback onPress={() => { LibNavigation.navigate('gusjigang/video', { 'idName': 'detail-video' }) }} style={{ flex: 1 }} >
-              <ImageBackground source={esp.assets('video_thumb.png')} style={{ flex: 1, backgroundColor: colorHeader, margin: 10, marginTop: 0, marginRight: 0, borderRadius: 2, overflow: 'hidden' }} >
+            <TouchableOpacity onPress={() => { LibNavigation.navigate('gusjigang/video', { 'idName': 'detail-video' }) }} style={{ flex: 1 }} >
+              <ImageBackground source={esp.assets('video_thumb.png')} style={{ flex: 1, backgroundColor: colorHeader, margin: 10, marginTop: 0, borderRadius: 2, overflow: 'hidden' }} >
                 <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, alignItems: 'center', justifyContent: 'center' }} >
-                  <Image source={esp.assets('group_4.png')} style={{ height: 40, width: 40, opacity: 0.8 }} />
+                  <Image source={esp.assets('group_4.png')} style={{ height: 40, width: 40, opacity: 0.4 }} />
                 </View>
-                <View style={{ position: 'absolute', left: 10, bottom: 10, backgroundColor: LibUtils.hexToRgba(colorBg, 0.2) }} >
-                  <GusjigangText text={video && video.title} fontSize={12} />
+                <View style={{ position: 'absolute', bottom: 0, left: 0, right: 0, backgroundColor: LibUtils.hexToRgba(colorHeader, 1), padding: 10 }} >
+                  <GusjigangText text={video && video.title} fontSize={10} />
                 </View>
               </ImageBackground>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback onPress={() => { toDetailTabs('detail-implji') }} style={{ flex: 1, }} >
-              <View style={{ flex: 1, backgroundColor: colorHeader, margin: 10, marginTop: 0, padding: 10, minHeight: 200, justifyContent: 'center', borderRadius: 2, overflow: 'hidden' }} >
-                <GusjigangText fontSize={12.5} text={implji && implji.title} style={{ textAlign: 'center' }} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => { toDetailImage('foto') }} style={{ flex: 1 }} >
+              <ImageBackground source={{ uri: foto.image }} style={{ flex: 1, backgroundColor: colorHeader, margin: 10, marginTop: 0, marginHorizontal: 0, borderRadius: 2, overflow: 'hidden' }} >
+                <View style={{ position: 'absolute', bottom: 0, left: 0, right: 0, backgroundColor: LibUtils.hexToRgba(colorHeader, 1), padding: 10 }} >
+                  <GusjigangText text={foto && foto.title} fontSize={10} />
+                </View>
+              </ImageBackground>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => LibNavigation.navigate('gusjigang/detail_card', { 'idName': 'kontak' })} style={{ flex: 1, backgroundColor: colorHeader, margin: 10, marginTop: 0, padding: 10 }}  >
+              <View style={{ flex: 1, alignItems: 'center' }} >
+                <LibIcon name="cellphone-message" size={60} color={'white'} />
+                <GusjigangText fontSize={15} style={{ fontWeight: 'bold', textAlign: 'center', marginTop: 5 }} text={kontak && kontak.title} />
               </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback onPress={() => { toDetailTabs('detail-implgang') }} style={{ flex: 1, }} >
-              <View style={{ flex: 1, backgroundColor: colorHeader, margin: 10, marginTop: 0, padding: 10, marginLeft: 0, minHeight: 200, justifyContent: 'center', borderRadius: 2, overflow: 'hidden' }} >
-                <GusjigangText fontSize={12.5} text={implgang && implgang.title} style={{ textAlign: 'center' }} />
-              </View>
-            </TouchableWithoutFeedback>
+            </TouchableOpacity>
           </View>
           <View style={{ flexDirection: 'row' }} >
             <TouchableWithoutFeedback onPress={() => { toDetail('detail-gus') }} style={{ flex: 1, }} >

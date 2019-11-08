@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@dudigital/react-native-zoomable-view": "^1.0.14",
     "esoftplay": "0.0.78-v",
     "expo": "^35.0.0",
     "expo-av": "~7.0.1",

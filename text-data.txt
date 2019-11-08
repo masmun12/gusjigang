@@ -61,3 +61,12 @@ oleh : Didit Y.S.
 ["Menara Kudus", "Menara Kudus"]
 
 java -jar pepk.jar --keystore=esoftplay.jks --alias=esoftplay --output=output.zip --encryptionkey=eb10fe8f7c7c9df715022017b00c6471f8ba8170b13049a11e6c09ffe3056a104a3bbe4ac5a955f4ba4fe93fc8cef27558a3eb9d2a529a2092761fb833b656cd48b9de6a --include-cert
+
+
+DESKRIPSI MEDIA
+
+
+Media pembelajaran “Gusjigang” merupakan salah satu inovasi media pembelajaran kesadaran berkonstitusi yang dikembangakan agar penyerapan materi dalam pembelajaran kesadaran berkonstitusi dapat maksimal.:::    Dalam pembelajaran kesadaran berkonstitusi identik dengan pembelajaran yang membosankan, kini dicoba dihilangkan agar nantinya materi yang disampaikan akan mudah diterima selama proses pembelajaran kesadaran berkonstitusi, sehingga proses pembelajaran kesadaran berkonstitusi menjadi menyenangkan dan menarik. Media pembelajaran kesadaran berkonstitusi yang bervariasi dan kreatif sangat dibutuhkan, agar nantinya pembelajaran kesadaran berkonstitusi tidak monoton tetapi berlangsung secara menarik.:::    Media pembelajaran Gusjigang berbasis gawai merupakan pengembangan dari media pembelajaran  pop up book UUD NRI Tahun 1945 yang dibuat tiap pasalnya dalam ukuran besar dengan bahan dari kertas karton.:::Implementasi karya dari media pembelajaran Gusjigang berbasis gawai dilakukan sesuai dengan desain pop up book UUD NRI Tahun 1945 yang telah dibuat dengan penambahan  kearifan lokal (local wisdom) Gusjigang yang ada di kabupaten Kudus, Jawa tengah. :::
+
+
+Didit Yoga Sudibyo:::diditsmkn2kudus@gmail.com:::WA : 0813 921 66 111:::
